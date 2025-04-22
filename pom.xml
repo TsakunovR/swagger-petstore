@@ -92,18 +92,12 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>${jetty-version}</version>
                 <configuration>
-                    <monitoredDirName>.</monitoredDirName>
-                    <scanTargets>
-                        <scanTarget>inflector.yaml</scanTarget>
-                        <scanTarget>src/main/resources/openapi-inflector.yaml</scanTarget>
-                    </scanTargets>
-                    <scanIntervalSeconds>1</scanIntervalSeconds>
                     <webApp>
                         <contextPath>/</contextPath>
                     </webApp>
                     <webAppSourceDirectory>target/${project.artifactId}-${project.version}</webAppSourceDirectory>
                     <httpConnector>
-                        <port>8080</port>
+                        <port>9090</port>
                         <idleTimeout>60000</idleTimeout>
                     </httpConnector>
                 </configuration>
@@ -156,7 +150,6 @@
         </plugins>
     </build>
     <dependencies>
-
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -182,14 +175,11 @@
             <artifactId>jackson-datatype-joda</artifactId>
             <version>${jackson-version}</version>
         </dependency>
-
-
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-jaxrs2</artifactId>
             <version>${swagger-core-version}</version>
         </dependency>
-        <!-- inflector library -->
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-inflector</artifactId>
@@ -200,7 +190,6 @@
             <artifactId>swagger-parser</artifactId>
             <version>${swagger-parser-version}</version>
         </dependency>
-
     </dependencies>
     <repositories>
         <repository>
@@ -213,7 +202,7 @@
     </repositories>
     <properties>
         <maven-plugin-version>1.0.0</maven-plugin-version>
-        <swagger-parser-version>2.1.21  </swagger-parser-version>
+        <swagger-parser-version>2.1.21</swagger-parser-version>
         <swagger-core-version>2.2.17</swagger-core-version>
         <jackson-version>2.16.1</jackson-version>
         <swagger-inflector-version>2.0.11</swagger-inflector-version>
